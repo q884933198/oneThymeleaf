@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.example.onethymeleaf.dao.StudentMapper">
+    <insert id="addStudent">
+        INSERT INTO student VALUES (null,#{name},#{age},#{gander})
+    </insert>
+    <update id="updataStudent">
+        UPDATE student SET `name` = #{name} ,age =#{age} , gander =#{gander} WHERE id = #{id}
+    </update>
+    <delete id="removeStudent">
+        DELETE FROM student WHERE id=#{id}
+    </delete>
+
+
+    <select id="getStudent" resultType="cn.example.onethymeleaf.vo.Student">
+        select * from student
+    </select>
+    <select id="getStudentById" resultType="cn.example.onethymeleaf.vo.Student">
+        select * from student WHERE id= #{id}
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+# mysql
+spring:
+  datasource:
+    #MySQL配置
+    driverClassName:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/student?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+  application:
+    name: mail-demo
+  thymeleaf:
+      cache:false
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+server:
+  port: 9000
+logging:
+  level:
+    cn.example.onethymeleaf.dao: DEBUG
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+

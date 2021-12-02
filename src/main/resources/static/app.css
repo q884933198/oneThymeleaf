@@ -1,0 +1,9 @@
+.app{
+    height: 200px;
+    width: 100px;
+    background-color: yellow;
+}
+
+.action {
+    color:red;
+}

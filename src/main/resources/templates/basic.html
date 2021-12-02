@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>srpingboot</title>
+        <link rel="stylesheet" th:href="@{app.css}">
+        <script th:inline="javascript">
+            const user = /*[[${user}]]*/ {};
+            console.log(user);
+        </script>
+
+    </head>
+
+    <body>
+        <div th:object="${user}">
+            <h1  th:text="*{username}"></h1>
+            <h1  th:text="*{age}"></h1>
+            <h1  th:text="${#dates.format(user.getCreateTime(),'yyyy-MM-dd ')}"></h1>
+            <h1  th:if="*{isVip}">会员</h1>
+        </div>
+
+        <ul>
+            <li
+                th:each="tag,stat:${user.tags}"
+                th:text="${tag}"
+                th:classappend="${stat.last}?'action'"
+            >
+
+            </li>
+        </ul>
+        <div th:switch="${user.sex}">
+            <p th:case="1">男</p>
+            <p th:case="2">女</p>
+        </div>
+
+        <div th:include="~{component::com1}"></div>
+        <div th:include="~{component::#com2}"></div>
+        <div class="app">
+
+        </div>
+
+    </body>
+</html>
